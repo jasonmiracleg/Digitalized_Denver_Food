@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('userID')->index();
+            $table->foreign('userID')->on('users')->references('id')->onUpdate('cascade');
+            $table->unsignedBigInteger('menuID')->index();
+            $table->foreign('menuID')->on('menus')->references('id')->onUpdate('cascade');
             $table->integer('quantity');
             $table->float('totalPrice');
             $table->timestamps();
