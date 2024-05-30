@@ -12,6 +12,7 @@ class Order extends Model
     protected $fillable = [
         'userID',
         'menuID',
+        'quantity',
         'totalPrice'
     ];
 }

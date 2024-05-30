@@ -50,6 +50,11 @@
     <main>
         @yield('content')
     </main>
+    @if (session()->has('alert'))
+        <script>
+            alert("{{ session()->get('alert') }}");
+        </script>
+    @endif
 </body>
 
 </html>

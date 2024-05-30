@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 
@@ -33,7 +34,17 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $user = Auth::user();
+        Order::create([
+            'userID' => $user->id,
+            'menuID' => $request->menuID,
+            'quantity' => $request->quantity ?? 1,
+            'totalPrice' => $request->basePrice*($request->quantity ?? 1)
+        ]);
+        
+        session()->flash('alert', 'Order placed successfully!');
+
+        return redirect()->route('orderPage');
     }
 
     /**

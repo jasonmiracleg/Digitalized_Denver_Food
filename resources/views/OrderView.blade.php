@@ -11,7 +11,7 @@
                     <form action="{{ route('menuDetail', $menu) }}" method="GET">
                         @csrf
                         <a href="{{ route('menuDetail', $menu) }}">
-                            <img class="rounded-t-lg object-cover w-full h-64" src="image/{{ $menu->menuImage }}"
+                            <img class="rounded-t-lg object-cover w-full h-64" src="/image/{{ $menu->menuImage }}"
                                 alt="" />
                             <div class="p-5">
                                 <div class="flex flex-row items-center">
