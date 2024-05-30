@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('menuName');
             $table->string('menuBasePrice');
             $table->text('menuDescription');
+            $table->string('menuImage');
         });
     }
 

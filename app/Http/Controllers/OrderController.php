@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
@@ -13,7 +14,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('OrderView');
+        return view(
+            'OrderView',
+            ['menus' => Menu::all()]
+        );
     }
 
     /**
@@ -37,7 +41,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        
     }
 
     /**
