@@ -2,6 +2,27 @@
 
 @section('content')
     <div class="max-w-screen-xl p-4 max-w-screen-xl mx-auto pt-24">
+        @if ($orders)
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold">Recent Ordered Menu</h1>
+                <div class="grid grid-cols-4 gap-8 mt-8 max-h-96">
+                    @foreach ($orders as $order)
+                        <div class="block w-64 p-6 bg-white border border-gray-200 rounded-lg shadow">
+                            <div>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    {{ $order->detailMenu->menuName }}</h5>
+                                <p class="ml-auto text-gray-500">{{ $order->detailMenu->made->stallName }}</p>
+                            </div>
+                            <div>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">{{ $order->quantity }}x</p>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">Rp
+                                    {{ number_format($order->totalPrice, 0, ',', '.') }},-</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
         <div>
             <h1 class="text-2xl font-bold">Denver Food Menus</h1>
         </div>

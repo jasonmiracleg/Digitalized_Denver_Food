@@ -15,10 +15,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view(
-            'OrderView',
-            ['menus' => Menu::all()]
-        );
+        $user = Auth::user();
+        $orders = Order::where('userID', $user->id)->orderBy('created_at', 'desc')->take(8)->get();;
+        return view('OrderView', [
+            'menus' => Menu::all(),
+            'orders' => $orders
+        ]);
     }
 
     /**
@@ -39,9 +41,9 @@ class OrderController extends Controller
             'userID' => $user->id,
             'menuID' => $request->menuID,
             'quantity' => $request->quantity ?? 1,
-            'totalPrice' => $request->basePrice*($request->quantity ?? 1)
+            'totalPrice' => $request->basePrice * ($request->quantity ?? 1)
         ]);
-        
+
         session()->flash('alert', 'Order placed successfully!');
 
         return redirect()->route('orderPage');
@@ -52,7 +54,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        
     }
 
     /**
