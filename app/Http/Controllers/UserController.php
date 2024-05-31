@@ -28,7 +28,7 @@ class UserController extends Controller
         $user->update(['isLogin' => '1']);
         Auth::login($user);
 
-        return redirect()->route('orderPage'); // redirect to your intended page
+        return redirect()->route('stallsPage'); // redirect to your intended page
     }
 
     public function logout()
@@ -38,7 +38,7 @@ class UserController extends Controller
             Auth::logout(); // Log out the user
             User::where('id', $user->id)->update(['isLogin' => '0']);
         }
-    
+
         return redirect()->route('guest'); // Redirect to your home page or any other page
     }
 }

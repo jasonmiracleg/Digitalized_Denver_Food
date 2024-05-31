@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="max-w-screen-xl p-4 max-w-screen-xl mx-auto pt-24 flex flex-row relative">
+    <div class="max-w-screen-xl p-4 max-w-screen-xl mx-auto pt-24 flex flex-row relative mt-10">
         <div>
             <img class="rounded-lg object-cover w-auto h-96" src="/image/{{ $menuEdit->menuImage }}" />
         </div>

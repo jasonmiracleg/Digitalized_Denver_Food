@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('stallName');
+            $table->string('stallDescription');
+            $table->string('stallImage');
         });
     }
 

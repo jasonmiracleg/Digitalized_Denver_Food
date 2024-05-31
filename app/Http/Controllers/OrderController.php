@@ -46,7 +46,7 @@ class OrderController extends Controller
 
         session()->flash('alert', 'Order placed successfully!');
 
-        return redirect()->route('orderPage');
+        return redirect()->route('stallsPage');
     }
 
     /**

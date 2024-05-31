@@ -24,20 +24,31 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
+        //Stalls
         Stall::create([
-            'stallName' => 'Gloria'
+            'stallName' => 'Gloria',
+            'stallDescription' => 'HOMEMADE NOODLES SINCE 1970',
+            'stallImage' => 'GloriaLogo.jpeg'
         ]);
 
         Stall::create([
-            'stallName' => 'ChiFry'
+            'stallName' => 'ChiFry',
+            'stallDescription' => 'Est. 2013
+            🍯 Specialist Crispy Chicken Honey Sauce
+            📍 100++ Outlet di Indonesia',
+            'stallImage' => 'ChiFryLogo.png'
         ]);
 
         Stall::create([
-            'stallName' => 'Chinese Food'
+            'stallName' => 'Chinese Food',
+            'stallDescription' => 'taste so heavenly',
+            'stallImage' => 'ChineseFoodLogo.jpg'
         ]);
 
         Stall::create([
-            'stallName' => 'Cincau Station'
+            'stallName' => 'Cincau Station',
+            'stallDescription' => 'Always New Always Fresh :)',
+            'stallImage' => 'CincauStationLogo.jpg'
         ]);
 
         Menu::create([
@@ -87,5 +98,7 @@ class DatabaseSeeder extends Seeder
             'menuDescription' => 'Nasi goreng yang dilengkapi dengan sayuran dan ayam',
             'menuImage' => 'NasiGoreng.jpeg'
         ]);
+
+
     }
 }
