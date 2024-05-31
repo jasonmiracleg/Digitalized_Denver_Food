@@ -15,6 +15,8 @@
             </div>
             @endforeach
 
+            <a href="{{ route('stallsPage') }}">Browse more Menu</a>
+
             <form action="{{ route('checkout') }}" method="get">
                 <button type="submit" class="btn btn-pink-color fw-bold w-100">Proceed to
                     Checkout</button>
