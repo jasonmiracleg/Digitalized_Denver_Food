@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Menu;
 use App\Models\Stall;
 use App\Models\User;
+use App\Models\Cart;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -24,7 +25,10 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
-        //Stalls
+        Cart::create([
+            'user_id' => 1,
+        ]);
+
         Stall::create([
             'stallName' => 'Gloria',
             'stallDescription' => 'HOMEMADE NOODLES SINCE 1970',

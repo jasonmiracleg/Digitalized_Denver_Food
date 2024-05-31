@@ -33,6 +33,8 @@
                         <li>
                             <a href="{{ route('stallsPage') }}" class="block py-2 px-3 md:p-0">Order</a>
                         </li>
+                        <a href="{{ route('cartPage') }}" class="block py-2 px-3 md:p-0">Cart</a>
+
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="block py-2 px-3 md:p-0">Log Out</button>

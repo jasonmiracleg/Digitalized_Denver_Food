@@ -13,27 +13,27 @@
             </div>
         </div>
 
-        @if ($orders && count($orders) > 0)
-            <div class="mb-8">
-                <h3 class="text-1xl font-bold">Here are the recent Orders you've made in {{ $stall->stallName }}</h3>
-                <div class="grid grid-cols-8 gap-4 mt-2 max-h-96 overflow-y-auto">
-                    @foreach ($orders as $order)
-                        <div class="block p-4 bg-white border border-gray-200 rounded-lg shadow">
-                            <div>
-                                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                    {{ $order->detailMenu->menuName }}</h5>
-                                <p class="ml-auto text-gray-500">{{ $order->detailMenu->made->stallName }}</p>
-                            </div>
-                            <div>
-                                <p class="font-normal text-gray-700">{{ $order->quantity }}x</p>
-                                <p class="font-normal text-gray-700">Rp {{ number_format($order->totalPrice, 0, ',', '.') }},-</p>
-                            </div>
+        @if ($orders)
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold">Here are some recent Orders you've made in {{ $stall->stallName }}</h1>
+            <div class="grid grid-cols-8 gap-4 mt-8 max-h-96 overflow-y-auto">
+                @foreach ($orders as $order)
+                    <div class="block p-4 bg-white border border-gray-200 rounded-lg shadow">
+                        <div>
+                            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                                {{ $order->menu->menuName }}</h5>
+                            <p class="ml-auto text-gray-500">{{ $order->menu->made->stallName }}</p>
                         </div>
-                    @endforeach
-                </div>
-
+                        <div>
+                            <p class="font-normal text-gray-700">{{ $order->quantity }}x</p>
+                            <p class="font-normal text-gray-700">Rp {{ number_format($order->totalPrice, 0, ',', '.') }},-</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        @endif
+
+        </div>
+    @endif
 
         <h3 class="text-2xl font-bold">Menus available in {{ $stall->stallName }}</h3>
 

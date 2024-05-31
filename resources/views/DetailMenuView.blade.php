@@ -6,7 +6,7 @@
             <img class="rounded-lg object-cover w-auto h-96" src="/image/{{ $menuEdit->menuImage }}" />
         </div>
         <div class="w-full">
-            <form method="POST" action="{{ route('createOrder') }}">
+            <form method="POST" action="{{ route('createCartItem') }}">
                 @csrf
                 <div class="ms-8 flex gap-y-3 flex-col">
                     <h1 class="text-3xl font-bold">{{ $menuEdit->menuName }}</h1>

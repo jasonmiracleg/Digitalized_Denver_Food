@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="max-w-screen-xl p-4 max-w-screen-xl mx-auto pt-24">
-        @if ($orders && count($orders) > 0)
+        @if ($orders)
             <div class="mb-8">
                 <h1 class="text-2xl font-bold">Here are some recent Orders you've made</h1>
                 <div class="grid grid-cols-8 gap-4 mt-8 max-h-96 overflow-y-auto">
@@ -10,8 +10,8 @@
                         <div class="block p-4 bg-white border border-gray-200 rounded-lg shadow">
                             <div>
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                    {{ $order->detailMenu->menuName }}</h5>
-                                <p class="ml-auto text-gray-500">{{ $order->detailMenu->made->stallName }}</p>
+                                    {{ $order->menu->menuName }}</h5>
+                                <p class="ml-auto text-gray-500">{{ $order->menu->made->stallName }}</p>
                             </div>
                             <div>
                                 <p class="font-normal text-gray-700">{{ $order->quantity }}x</p>

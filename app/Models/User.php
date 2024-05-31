@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
+
     public function ordered(): HasMany {
         return $this->hasMany(Order::class, 'userID', 'id');
     }
