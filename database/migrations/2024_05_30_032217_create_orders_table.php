@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('menuID')->on('menus')->references('id')->onUpdate('cascade');
             $table->integer('quantity');
             $table->float('totalPrice');
+            $table->enum('status', ['Ordered', 'In-Progress', 'Ready for pick-up', 'Cancelled', 'Awaiting Payment']);
             $table->timestamps();
         });
     }

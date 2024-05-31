@@ -14,7 +14,8 @@ class Order extends Model
         'userID',
         'menuID',
         'quantity',
-        'totalPrice'
+        'totalPrice',
+        'status'
     ];
 
     public function detailMenu(): BelongsTo {

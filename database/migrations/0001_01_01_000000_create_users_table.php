@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             // 1 = User Login, 0 = User Logout
             $table->enum('isLogin', ['0', '1'])->default('0');
+            $table->enum('role', ['admin', 'stallOwner','customer'])->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -41,7 +41,8 @@ class OrderController extends Controller
             'userID' => $user->id,
             'menuID' => $request->menuID,
             'quantity' => $request->quantity ?? 1,
-            'totalPrice' => $request->basePrice * ($request->quantity ?? 1)
+            'totalPrice' => $request->basePrice * ($request->quantity ?? 1),
+            'status' => 'Ordered'
         ]);
 
         session()->flash('alert', 'Order placed successfully!');
