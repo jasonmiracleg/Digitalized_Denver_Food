@@ -27,8 +27,7 @@
                     <input type="hidden" name="quantity" id="quantityInput" value="1">
                     <input type="hidden" name="basePrice" value="{{ $menuEdit->menuBasePrice }}">
                     <button type="submit"
-                        class="bg-green-500 text-white py-2 px-4 rounded-lg font-bold absolute bottom-4">Place an
-                        Order</button>
+                        class="bg-green-500 text-white py-2 px-4 rounded-lg font-bold absolute bottom-4">Add to Cart</button>
                 </div>
             </form>
         </div>

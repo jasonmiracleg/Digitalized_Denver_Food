@@ -17,6 +17,22 @@
 
         <form action="{{ route('createOrder') }}" method="post" class="row g-3">
             @csrf
+            <<div class="form-group col-md-12">
+                <label for="orderType">Order Type:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="orderType" id="dineIn" value="dine_in" required>
+                    <label class="form-check-label" for="dineIn">
+                        Dine In
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="orderType" id="takeaway" value="takeaway" required>
+                    <label class="form-check-label" for="takeaway">
+                        Takeaway
+                    </label>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-pink-color fw-bold w-100 mt-2">Finalize
                 Order</button>
         </form>

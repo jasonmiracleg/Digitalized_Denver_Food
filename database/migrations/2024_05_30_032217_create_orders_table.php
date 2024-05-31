@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('userID')->index();
             $table->foreign('userID')->on('users')->references('id')->onUpdate('cascade');
             $table->float('totalPrice');
+            $table->text('orderType');
             $table->timestamps();
         });
     }

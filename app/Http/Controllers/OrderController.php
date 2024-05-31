@@ -61,7 +61,8 @@ class OrderController extends Controller
         $user = Auth::user();
         $order = Order::create([
             'userID' => $user->id,
-            'totalPrice' => $totalamount
+            'totalPrice' => $totalamount,
+            'orderType' => $request->input('orderType')
         ]);
 
         foreach ($cartItems as $cartItem) {

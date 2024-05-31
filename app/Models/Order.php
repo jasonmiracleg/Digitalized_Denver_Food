@@ -13,7 +13,8 @@ class Order extends Model
 
     protected $fillable = [
         'userID',
-        'totalPrice'
+        'totalPrice',
+        'orderType'
     ];
 
     public function detailMenu(): BelongsTo {
