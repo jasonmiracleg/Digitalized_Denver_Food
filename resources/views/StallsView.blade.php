@@ -5,9 +5,9 @@
         @if ($orders)
             <div class="mb-8">
                 <h1 class="text-2xl font-bold">Here are some recent Orders you've made</h1>
-                <div class="grid grid-cols-8 gap-4 mt-8 max-h-96 overflow-y-auto">
+                <div class="grid grid-cols-6 gap-4 mt-8 max-h-96 overflow-y-auto">
                     @foreach ($orders as $order)
-                        <div class="block p-4 bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="block p-4 w-50 bg-white border border-gray-200 rounded-lg shadow">
                             <div>
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">
                                     {{ $order->menu->menuName }}</h5>
