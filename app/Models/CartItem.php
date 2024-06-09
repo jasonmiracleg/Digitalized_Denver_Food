@@ -13,7 +13,7 @@ class CartItem extends Model
         'menuID',
         'quantity',
         'totalPrice',
-        'cart_id'
+        'cartID'
     ];
 
 

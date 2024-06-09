@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Cart::create([
-            'user_id' => 1,
+            'userID' => 1,
         ]);
 
         Stall::create([

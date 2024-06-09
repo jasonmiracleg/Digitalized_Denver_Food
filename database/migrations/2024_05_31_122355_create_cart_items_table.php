@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('totalPrice');
             $table->unsignedBigInteger('menuID')->index();
             $table->foreign('menuID')->on('menus')->references('id')->onUpdate('cascade');
-            $table->unsignedBigInteger('cart_id');
-            $table->foreign('cart_id')->references('id')->on('carts')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('cartID');
+            $table->foreign('cartID')->references('id')->on('carts')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

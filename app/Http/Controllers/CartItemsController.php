@@ -20,7 +20,7 @@ class CartItemsController extends Controller
             'menuID' => $request->menuID,
             'quantity' => $request->quantity ?? 1,
             'totalPrice' => $request->basePrice * ($request->quantity ?? 1),
-            'cart_id' => $cart->id
+            'cartID' => $cart->id
         ]);
 
         return redirect()->route('cartPage')->with('success', 'Product added to cart successfully');

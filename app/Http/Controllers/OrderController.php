@@ -69,7 +69,7 @@ class OrderController extends Controller
             OrderItem::create([
                 'quantity' => $cartItem->quantity,
                 'totalPrice' => $cartItem->totalPrice, // Ensure totalPrice is included here
-                'order_id' => $order->id,
+                'orderID' => $order->id,
                 'menuID' => $cartItem->menuID,
             ]);
 
