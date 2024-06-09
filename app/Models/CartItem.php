@@ -18,10 +18,10 @@ class CartItem extends Model
 
 
     public function cart() {
-        return $this->belongsTo(Cart::class);
+        return $this->belongsTo(Cart::class, 'cartID', 'id');
     }
     public function menu()
     {
-        return $this->belongsTo(Menu::class, 'menuID');
+        return $this->belongsTo(Menu::class, 'menuID', 'id');
     }
 }
