@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Menu;
 use App\Models\Stall;
 use App\Models\User;
+use App\Models\Cart;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -24,20 +25,34 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
-        Stall::create([
-            'stallName' => 'Gloria'
+        Cart::create([
+            'userID' => 1,
         ]);
 
         Stall::create([
-            'stallName' => 'ChiFry'
+            'stallName' => 'Gloria',
+            'stallDescription' => 'HOMEMADE NOODLES SINCE 1970',
+            'stallImage' => 'GloriaLogo.jpeg'
         ]);
 
         Stall::create([
-            'stallName' => 'Chinese Food'
+            'stallName' => 'ChiFry',
+            'stallDescription' => 'Est. 2013
+            🍯 Specialist Crispy Chicken Honey Sauce
+            📍 100++ Outlet di Indonesia',
+            'stallImage' => 'ChiFryLogo.png'
         ]);
 
         Stall::create([
-            'stallName' => 'Cincau Station'
+            'stallName' => 'Chinese Food',
+            'stallDescription' => 'taste so heavenly',
+            'stallImage' => 'ChineseFoodLogo.jpg'
+        ]);
+
+        Stall::create([
+            'stallName' => 'Cincau Station',
+            'stallDescription' => 'Always New Always Fresh :)',
+            'stallImage' => 'CincauStationLogo.jpg'
         ]);
 
         Menu::create([
@@ -87,5 +102,7 @@ class DatabaseSeeder extends Seeder
             'menuDescription' => 'Nasi goreng yang dilengkapi dengan sayuran dan ayam',
             'menuImage' => 'NasiGoreng.jpeg'
         ]);
+
+
     }
 }

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="max-w-screen-xl p-4 max-w-screen-xl mx-auto pt-24 flex flex-row relative">
+    <div class="max-w-screen-xl p-4 max-w-screen-xl mx-auto pt-24 flex flex-row relative mt-10">
         <div>
             <img class="rounded-lg object-cover w-auto h-96" src="/image/{{ $menuEdit->menuImage }}" />
         </div>
         <div class="w-full">
-            <form method="POST" action="{{ route('createOrder') }}">
+            <form method="POST" action="{{ route('createCartItem') }}">
                 @csrf
                 <div class="ms-8 flex gap-y-3 flex-col">
                     <h1 class="text-3xl font-bold">{{ $menuEdit->menuName }}</h1>
@@ -27,8 +27,7 @@
                     <input type="hidden" name="quantity" id="quantityInput" value="1">
                     <input type="hidden" name="basePrice" value="{{ $menuEdit->menuBasePrice }}">
                     <button type="submit"
-                        class="bg-green-500 text-white py-2 px-4 rounded-lg font-bold absolute bottom-4">Place an
-                        Order</button>
+                        class="bg-green-500 text-white py-2 px-4 rounded-lg font-bold absolute bottom-4">Add to Cart</button>
                 </div>
             </form>
         </div>

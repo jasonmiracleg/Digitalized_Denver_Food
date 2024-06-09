@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
@@ -28,7 +29,15 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $cart = $user->cart;
+        $cartItems = $cart->cartItems;
+
+        return view('CheckoutView', [
+            'cart' => $cart,
+            'cartItems' => $cartItems,
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -36,18 +45,41 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
+
         $user = Auth::user();
-        Order::create([
+        $cart = $user->cart;
+        $cartItems = $cart->cartItems;
+        $totalamount = 0;
+
+        // contoh ambil data
+        // $deliveryDate = $request->input('delivery_date');
+
+        foreach ($cartItems as $cartItem) {
+            $totalamount += $cartItem->totalPrice;
+        }
+
+        $user = Auth::user();
+        $order = Order::create([
             'userID' => $user->id,
-            'menuID' => $request->menuID,
-            'quantity' => $request->quantity ?? 1,
-            'totalPrice' => $request->basePrice * ($request->quantity ?? 1),
-            'status' => 'Ordered'
+            'totalPrice' => $totalamount,
+            'orderType' => $request->input('orderType')
         ]);
+
+        foreach ($cartItems as $cartItem) {
+            OrderItem::create([
+                'quantity' => $cartItem->quantity,
+                'totalPrice' => $cartItem->totalPrice, // Ensure totalPrice is included here
+                'orderID' => $order->id,
+                'menuID' => $cartItem->menuID,
+            ]);
+
+            $cartItem->delete();
+        }
+
 
         session()->flash('alert', 'Order placed successfully!');
 
-        return redirect()->route('orderPage');
+        return redirect()->route('stallsPage');
     }
 
     /**

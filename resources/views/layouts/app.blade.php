@@ -13,7 +13,7 @@
 <body>
     <nav class="bg-yellow-300 top-0 fixed z-50 w-full">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="{{ route('stallsPage') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Denver Food</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
@@ -31,8 +31,10 @@
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
                     @auth
                         <li>
-                            <a href="{{ route('orderPage') }}" class="block py-2 px-3 md:p-0">Order</a>
+                            <a href="{{ route('stallsPage') }}" class="block py-2 px-3 md:p-0">Order</a>
                         </li>
+                        <a href="{{ route('cartPage') }}" class="block py-2 px-3 md:p-0">Cart</a>
+
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="block py-2 px-3 md:p-0">Log Out</button>

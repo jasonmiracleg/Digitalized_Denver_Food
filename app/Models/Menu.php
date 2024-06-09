@@ -19,4 +19,13 @@ class Menu extends Model
     public function ordered(): HasMany {
         return $this->hasMany(Order::class, 'menuID', 'id');
     }
+
+    public function cartItem(): HasMany {
+        return $this->hasMany(CartItem::class, 'menuID', 'id');
+    }
+
+    public function stall()
+    {
+        return $this->belongsTo(Stall::class, 'stallID');
+    }
 }
